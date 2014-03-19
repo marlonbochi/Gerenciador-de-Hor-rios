@@ -3416,3 +3416,23 @@ REQUEST_URI=/sistema_odig/application/agenda/insert
 in C:\wamp\www\sistema_odig\application\protected\views\agenda\insert.php (3)
 in C:\wamp\www\sistema_odig\application\protected\controllers\AgendaController.php (46)
 in C:\wamp\www\sistema_odig\application\index.php (13)
+2014/03/19 12:52:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "insert3".' in C:\wamp\www\sistema_odig\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\sistema_odig\framework\web\CController.php(270): CController->missingAction('insert3')
+#1 C:\wamp\www\sistema_odig\framework\web\CWebApplication.php(282): CController->run('insert3')
+#2 C:\wamp\www\sistema_odig\framework\web\CWebApplication.php(141): CWebApplication->runController('agenda/insert3')
+#3 C:\wamp\www\sistema_odig\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\sistema_odig\application\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sistema_odig/application/agenda/insert3
+---
+2014/03/19 12:52:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "insert3".' in C:\wamp\www\sistema_odig\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\sistema_odig\framework\web\CController.php(270): CController->missingAction('insert3')
+#1 C:\wamp\www\sistema_odig\framework\web\CWebApplication.php(282): CController->run('insert3')
+#2 C:\wamp\www\sistema_odig\framework\web\CWebApplication.php(141): CWebApplication->runController('agenda/insert3')
+#3 C:\wamp\www\sistema_odig\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\sistema_odig\application\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sistema_odig/application/agenda/insert3
+---
