@@ -17,9 +17,9 @@ class AgendaModel extends CFormModel
 						    ->select('*')
 						    ->from('agenda')
 						    ->where('id_funcionario = :id_funcionario', array(':id_funcionario' => $id_funcionario))
-						   	->andWhere('(periodo_inicial_agenda <= ":id1" <= periodo_final_agenda) OR
-						   				(periodo_inicial_agenda <= ":id2" <= periodo_final_agenda) OR
-						   				(:id1 <= periodo_inicial_agenda and  periodo_final_agenda <= :id2)', array(':id1'=> $perido_inicial, ':id2'=> $periodo_final))			
+						   	->andWhere('(periodo_inicial_agenda <= ":id1" >= periodo_final_agenda) OR
+						   				(periodo_inicial_agenda <= ":id2" >= periodo_final_agenda) OR
+						   				(:id1 <= periodo_inicial_agenda and  periodo_final_agenda >= :id2)', array(':id1'=> $perido_inicial, ':id2'=> $periodo_final))			
 						    ->queryAll();
 		return $data;
 	}
@@ -28,9 +28,9 @@ class AgendaModel extends CFormModel
 						    ->select('*')
 						    ->from('agenda')
 						    ->where('id_funcionario = :id_funcionario AND id_agenda <> :id_agenda', array(':id_funcionario' => $id_funcionario, ':id_agenda' => $id_agenda))
-						   	->andWhere('(periodo_inicial_agenda <= ":id1" <= periodo_final_agenda) OR
-						   				(periodo_inicial_agenda <= ":id2" <= periodo_final_agenda) OR
-						   				(:id1 <= periodo_inicial_agenda and  periodo_final_agenda <= :id2)', array(':id1'=> $perido_inicial, ':id2'=> $periodo_final))							    
+						   	->andWhere('(periodo_inicial_agenda <= ":id1" >= periodo_final_agenda) OR
+						   				(periodo_inicial_agenda <= ":id2" >= periodo_final_agenda) OR
+						   				(:id1 <= periodo_inicial_agenda and  periodo_final_agenda >= :id2)', array(':id1'=> $perido_inicial, ':id2'=> $periodo_final))							    
 						    ->queryAll();
 		return $data;
 	}

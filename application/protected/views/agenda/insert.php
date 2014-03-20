@@ -22,7 +22,7 @@ if(isset($_SESSION['mensagen_modulo_error'])){
 </div>
 <?php } ?>
 
-<div class="alert alert-error esconder_alert"> 
+<div class="alert alert-error esconder_alert" style='display:none;'> 
 </div>
 
 <form action="<?=$this->createUrl('/'.$modulo.'/insert');?>" method='POST' class='form_agenda'>

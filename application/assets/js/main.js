@@ -6,7 +6,6 @@ $(document).ready(function($) {
 	
 
 	//Validação do Fomulário referente a agenda.
-	$(".esconder_alert").css('display','none');
 	$('.form_agenda').submit(function() {
 		var data_inicial = $('.data_inicial').val();
 		var hora_inicial = $('.hora_inicial').val();
@@ -38,9 +37,9 @@ $(document).ready(function($) {
 		} 
 		
 		if(flag == false){
-			$(".alert-error").html('');
-			$(".alert-error").append(msg);
-			$(".alert-error").fadeIn('fast');
+			$(".esconder_alert").html('');
+			$(".esconder_alert").append(msg);
+			$(".esconder_alert").fadeIn('fast');
 			return false;
 		}
 	});
