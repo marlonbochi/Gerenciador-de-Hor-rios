@@ -22,26 +22,25 @@ class AgendaController extends Controller
 			$date = new DateTime($data_final);
 			$periodo_final_agenda = $date->format('Y-m-d H:i:s');
 			if($periodo_inicial_agenda < $periodo_final_agenda){
-				$ArrayInsert = array('id_funcionario' => $_POST['id_funcionario'],
-									 'id_atividade' => $_POST['id_atividade'],
-									 'id_local_trabalho' => $_POST['id_local_trabalho'],
-									 'periodo_inicial_agenda' => $periodo_inicial_agenda,
-									 'periodo_final_agenda' => $periodo_final_agenda
-									 );
-				$retorno = $modulo->insert('agenda', $ArrayInsert);
-				if ($retorno == 1){
+				$modulo_agenda = new AgendaModel();
+				$retorno_data = $modulo_agenda->verifica_data_vaga($_POST['id_funcionario'], $periodo_inicial_agenda, $periodo_final_agenda);
+
+				if(empty($retorno_data)){
+					$ArrayInsert = array('id_funcionario' => $_POST['id_funcionario'],
+										 'id_atividade' => $_POST['id_atividade'],
+										 'id_local_trabalho' => $_POST['id_local_trabalho'],
+										 'periodo_inicial_agenda' => $periodo_inicial_agenda,
+										 'periodo_final_agenda' => $periodo_final_agenda
+										 );
+					$modulo->insert('agenda', $ArrayInsert);
 					$_SESSION['mensagen_modulo'] = 'Registro inserido com sucesso!';
 					$this->redirect($this->createUrl('/agenda'));
+					
+				}else{
+					$_SESSION['mensagen_modulo_error'] = 'Período informado conflita com um período já cadastrado para esse funcionário!';
 				}
 			}else{
 				$_SESSION['mensagen_modulo_error'] = 'Horário Inicial não pode ser maior que Horário Final!';
-				$_SESSION['data_inicial_agenda'] = $_POST['data_inicial_agenda'];
-				$_SESSION['hora_inicial_agenda'] = $_POST['hora_inicial_agenda'];
-				$_SESSION['data_final_agenda'] = $_POST['data_final_agenda']; 
-				$_SESSION['hora_final_agenda'] = $_POST['hora_final_agenda'];
-				$_SESSION['id_funcionario'] = $_POST['id_funcionario'];
-				$_SESSION['id_atividade'] = $_POST['id_atividade'];
-				$_SESSION['id_local_trabalho'] = $_POST['id_local_trabalho'];
 			}
 		}
 		
@@ -67,19 +66,24 @@ class AgendaController extends Controller
 			$periodo_final_agenda = $date->format('Y-m-d H:i:s');
 
 			if($periodo_inicial_agenda < $periodo_final_agenda){
-				$ArrayColunas = array('id_funcionario' => $_POST['id_funcionario'],
-									 'id_atividade' => $_POST['id_atividade'],
-									 'id_local_trabalho' => $_POST['id_local_trabalho'],
-									 'periodo_inicial_agenda' => $periodo_inicial_agenda,
-									 'periodo_final_agenda' => $periodo_final_agenda
-									 );
-				$Conditions = 'id_agenda = :id';
-				$ArrayWhere = array(':id'=> $id);
-				$retorno = $modulo->update('agenda', $ArrayColunas, $Conditions, $ArrayWhere);
-				if ($retorno == 1){
+				$modulo_agenda = new AgendaModel();
+				$retorno_data = $modulo_agenda->verifica_data_vaga_update($_POST['id_funcionario'], $periodo_inicial_agenda, $periodo_final_agenda, $id);
+
+				if(empty($retorno_data)){
+					$ArrayColunas = array('id_funcionario' => $_POST['id_funcionario'],
+										 'id_atividade' => $_POST['id_atividade'],
+										 'id_local_trabalho' => $_POST['id_local_trabalho'],
+										 'periodo_inicial_agenda' => $periodo_inicial_agenda,
+										 'periodo_final_agenda' => $periodo_final_agenda
+										 );
+					$Conditions = 'id_agenda = :id';
+					$ArrayWhere = array(':id'=> $id);
+					$modulo->update('agenda', $ArrayColunas, $Conditions, $ArrayWhere);
 					$_SESSION['mensagen_modulo'] = 'Registro editado com sucesso!';
 					$this->redirect($this->createUrl('/agenda'));
-				}					
+				}else{
+					$_SESSION['mensagen_modulo_error'] = 'Período informado conflita com um período já cadastrado para esse funcionário!';
+				}				
 			}else{
 				$_SESSION['mensagen_modulo_error'] = 'Horário Inicial não pode ser maior que Horário Final!';
 			}

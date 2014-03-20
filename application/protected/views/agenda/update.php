@@ -44,7 +44,7 @@ if(isset($_SESSION['mensagen_modulo_error'])){
 		  <select name='id_atividade' required class='chosen-select' data-validation-required-message='Atividade deve ser selecionada!' style='min-width:250px;'>
 		  	<option value="">Selecione uma Atividade</option>
 		  	<?php foreach ($atividades as $value) { ?>
-				<option value="<?=$value['id_atividade'];?>" <?= $value['id_atividade'] == $agenda[0]['id_atividade']? 'selected': '';?> ><?=$value['descricao_atividade'];?></option>
+				<option value="<?=$value['id_atividade'];?>" <?= $value['id_atividade'] == $agenda[0]['id_atividade'] ? 'selected': '';?> ><?=$value['descricao_atividade'];?></option>
 		  	<?php } ?>
 		  </select>
 		  <p class="help-block"></p>
