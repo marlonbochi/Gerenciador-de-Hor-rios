@@ -6,7 +6,7 @@ class Locais_trabalhoController extends Controller
 	{
 		$modulo = new Comum();
 		$retorno = $modulo->select_todos('local_trabalho', '*');
-		$this->render('index', array('locaistrabalho' => $retorno));
+		$this->render('index', array('locais_trabalho' => $retorno));
 	}
 	public function actionInsert()
 	{
@@ -17,7 +17,7 @@ class Locais_trabalhoController extends Controller
 			if ($retorno == 1){
 				session_start();
 				$_SESSION['mensagen_modulo'] = 'Registro inserido com sucesso!';
-				$this->redirect($this->createUrl('/locaistrabalho'));
+				$this->redirect($this->createUrl('/locais_trabalho'));
 			}
 		}
 
@@ -34,7 +34,7 @@ class Locais_trabalhoController extends Controller
 			if ($retorno == 1){
 				session_start();
 				$_SESSION['mensagen_modulo'] = 'Registro editado com sucesso!';
-				$this->redirect($this->createUrl('/locaistrabalho'));
+				$this->redirect($this->createUrl('/locais_trabalho'));
 			}	
 		}
 		$Conditions = 'id_local_trabalho = :id';
@@ -51,7 +51,7 @@ class Locais_trabalhoController extends Controller
 		if ($retorno == 1){
 			session_start();
 			$_SESSION['mensagen_modulo'] = 'Registro excluido com sucesso!';
-			$this->redirect($this->createUrl('/locaistrabalho'));
+			$this->redirect($this->createUrl('/locais_trabalho'));
 		}
 	}
 }

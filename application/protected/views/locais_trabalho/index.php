@@ -2,7 +2,7 @@
 	// Marlon Bochi
 	session_start();
 	$this->pageTitle=Yii::app()->name;
-	$modulo = 'locaistrabalho';
+	$modulo = 'locais_trabalho';
 ?>
 
 <div class="breacrumbs">
@@ -35,7 +35,7 @@ if(isset($_SESSION['mensagen_modulo'])){
 				Ações
 			</th>
 		</tr>
-		<?php foreach ($locaistrabalho as $value) {?>
+		<?php foreach ($locais_trabalho as $value) {?>
 		<tr>
 			<td>
 				<?=$value['descricao_local_trabalho'];?>

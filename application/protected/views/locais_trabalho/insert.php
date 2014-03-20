@@ -2,7 +2,7 @@
 	// Marlon Bochi
 	session_start();
 	$this->pageTitle=Yii::app()->name;
-	$modulo = 'locaistrabalho';
+	$modulo = 'locais_trabalho';
 ?>
 
 <div class="breacrumbs">
