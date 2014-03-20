@@ -12,7 +12,7 @@
           <li class='<?= Yii::app()->controller->id == 'home' || Yii::app()->controller->id == '' ? 'active': ''; ?>'><a href="<?=$this->createUrl('/');?>">Home</a></li>
           <li class='<?= Yii::app()->controller->id == 'funcionarios' ? 'active': ''; ?>'><a href="<?=$this->createUrl('/funcionarios');?>">Funcionários</a></li>
           <li class='<?= Yii::app()->controller->id == 'atividades' ? 'active': ''; ?>'><a href="<?=$this->createUrl('/atividades');?>">Atividades</a></li>
-          <li class='<?= Yii::app()->controller->id == 'locaistrabalho' ? 'active': ''; ?>'><a href="<?=$this->createUrl('/locaistrabalho');?>">Locais de Trabalho</a></li>
+          <li class='<?= Yii::app()->controller->id == 'locais_trabalho' ? 'active': ''; ?>'><a href="<?=$this->createUrl('/locais_trabalho');?>">Locais de Trabalho</a></li>
           <li class='<?= Yii::app()->controller->id == 'agenda' ? 'active': ''; ?>'><a href="<?=$this->createUrl('/agenda');?>">Agenda</a></li>	    
         </ul>
       </div><!--/.nav-collapse -->

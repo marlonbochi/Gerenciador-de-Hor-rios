@@ -1,6 +1,6 @@
 <?php
 // Marlon Bochi
-class LocaisTrabalhoController extends Controller
+class Locais_trabalhoController extends Controller
 {
 	public function actionIndex()
 	{
