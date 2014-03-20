@@ -24,7 +24,7 @@ class AgendaController extends Controller
 			if($periodo_inicial_agenda < $periodo_final_agenda){
 				$modulo_agenda = new AgendaModel();
 				$retorno_data = $modulo_agenda->verifica_data_vaga($_POST['id_funcionario'], $periodo_inicial_agenda, $periodo_final_agenda);
-
+				
 				if(empty($retorno_data)){
 					$ArrayInsert = array('id_funcionario' => $_POST['id_funcionario'],
 										 'id_atividade' => $_POST['id_atividade'],
@@ -68,7 +68,7 @@ class AgendaController extends Controller
 			if($periodo_inicial_agenda < $periodo_final_agenda){
 				$modulo_agenda = new AgendaModel();
 				$retorno_data = $modulo_agenda->verifica_data_vaga_update($_POST['id_funcionario'], $periodo_inicial_agenda, $periodo_final_agenda, $id);
-
+				
 				if(empty($retorno_data)){
 					$ArrayColunas = array('id_funcionario' => $_POST['id_funcionario'],
 										 'id_atividade' => $_POST['id_atividade'],
